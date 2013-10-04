@@ -9,7 +9,7 @@ class AppDelegate
   def createTabBar
     tab_bar_controller = UITabBarController.alloc.init
     tab_bar_controller.viewControllers = [
-                                          Tab1Controller.alloc.init,
+                                          UINavigationController.alloc.initWithRootViewController(Tab1Controller.alloc.init),
                                           Tab2Controller.alloc.init,
                                           Tab3Controller.alloc.init
                                          ]
