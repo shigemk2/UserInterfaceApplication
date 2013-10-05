@@ -32,6 +32,13 @@ class Tab1Controller < UIViewController
   end
 
   def add_form_elements
+    @normalButton = UIButton.buttonWithType(UIButtonTypeRoundedRect)
+    @normalButton.frame = [[10,200],[200,35]]
+    @normalButton.setTitle('Click Me', forState:UIControlStateNormal)
+    @normalButton.setTitle('You have clicked me', forState:UIControlStateHighlighted)
+    @normalButton.setTitle(self, action:'buttonIsPressed',forControlEvents:UIControlEventTouchDown)
+    view.addSubview(@normalButton)
+
     @customSlider = UISlider.alloc.initWithFrame([[10, 160], [200, 35]])
     @customSlider.minimumValue = 0
     @customSlider.maximumValue = 100
@@ -62,5 +69,8 @@ class Tab1Controller < UIViewController
   end
 
   def sliderValueChanged
+  end
+
+  def buttonIsPressed
   end
 end
