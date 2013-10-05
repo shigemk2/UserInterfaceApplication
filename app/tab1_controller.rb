@@ -32,6 +32,13 @@ class Tab1Controller < UIViewController
   end
 
   def add_form_elements
+    @customSlider = UISlider.alloc.initWithFrame([[10, 160], [200, 35]])
+    @customSlider.minimumValue = 0
+    @customSlider.maximumValue = 100
+    @customSlider.value = @customSlider.maximumValue / 2
+    @customSlider.addTarget(self, action:'sliderValueChanged', forControlEvents:UIControlEventValueChanged)
+    view.addSubview(@customSlider)
+
     @switch = UISwitch.alloc.initWithFrame([[10,130], [200,35]])
     @switch.addTarget(self, action: 'switchIsChanged', forControlEvents:UIControlEventValueChanged)
     view.addSubview(@switch)
@@ -52,5 +59,8 @@ class Tab1Controller < UIViewController
     else
       # some code
     end
+  end
+
+  def sliderValueChanged
   end
 end
