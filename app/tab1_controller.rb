@@ -13,6 +13,7 @@ class Tab1Controller < UIViewController
     view.backgroundColor = UIColor.scrollViewTexturedBackgroundColor
 
     setupNavigationBar
+    add_form_elements
   end
 
   def setupNavigationBar
@@ -28,5 +29,28 @@ class Tab1Controller < UIViewController
                                                  cancelButtonTitle: "ok",
                                                  otherButtonTitles: nil)
     @alert_box.show
+  end
+
+  def add_form_elements
+    @switch = UISwitch.alloc.initWithFrame([[10,130], [200,35]])
+    @switch.addTarget(self, action: 'switchIsChanged', forControlEvents:UIControlEventValueChanged)
+    view.addSubview(@switch)
+
+    label = UILabel.alloc.init
+    label.frame = [[0,40],[300,30]]
+    label.backgroundColor = UIColor.clearColor
+    label.textColor = UIColor.greenColor
+    label.font = UIFont.fontWithName("HelveticaNeue-CondensedBold", size:18)
+    label.text = "This is hogehoge"
+
+    view.addSubview(label)
+  end
+
+  def switchIsChanged
+    if @switch.on?
+      # some code
+    else
+      # some code
+    end
   end
 end
